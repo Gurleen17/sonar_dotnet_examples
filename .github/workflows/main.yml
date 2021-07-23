@@ -83,7 +83,7 @@ jobs:
       run: |
          ./.sonar/scanner/dotnet-sonarscanner begin /k:".NetProject" /v:"1.0" /d:sonar.sources="." /d:sonar.sourceEncoding="UTF-8" /d:sonar.cs.nunit.reportsPaths="reports/nunit_results.xml" /d:sonar.cs.opencover.reportsPaths="reports/opencover_results.xml"
  
-         MSBuild.exe /target:Clean;Build /property:Configuration=SonarQube /p:Platform="Any CPU" /p:RunCodeAnalysis=True /p:RunCodeAnalysisOnThisProject=true
+         dotnet /target:Clean;Build /property:Configuration=SonarQube /p:Platform="Any CPU" /p:RunCodeAnalysis=True /p:RunCodeAnalysisOnThisProject=true
          
          CALL run_dotnet_tests.bat
 
